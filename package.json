@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/szervik/TS_202505_EX#readme",
   "dependencies": {
-    "jest": "^30.0.0",
+    "jest": "^29.7.0",
     "typescript": "^5.8.3"
   }
 }
