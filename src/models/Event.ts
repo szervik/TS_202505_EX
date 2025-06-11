@@ -14,12 +14,4 @@ export class Event<T extends IGuest> implements IEvent<T> {
     ) {
         this.guests = new Map<string, T>();
     }
-
-    addGuest(guest: T): void {
-        this.guests.set(guest.email, guest);
-    }
-
-    removeGuest(email: string): void {
-        this.guests.delete(email);
-    }
 }
