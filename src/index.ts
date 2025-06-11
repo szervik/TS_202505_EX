@@ -44,4 +44,5 @@ eventService.removeGuestFromEvent(birthdayEvent.id, guest1.email);
 // esemény törlése
 eventService.deleteEvent(birthdayEvent.id);
 
+// események listázása
 console.log(`Események: ${eventService.getEvents()}`);
