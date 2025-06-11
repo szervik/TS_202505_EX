@@ -31,6 +31,7 @@ export class EventService<T extends IGuest> {
         this.events.delete(id);
     }
 
+    // @Enumerable(false)
     addGuestToEvent(eventId: number, guest: T): void {
         const event = this.events.get(eventId);
         if (event && isGuest(guest)) {
