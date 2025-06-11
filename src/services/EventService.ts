@@ -1,5 +1,7 @@
 import { IEvent } from "../interfaces/IEvent";
 import { IGuest } from "../interfaces/IGuest";
+import { EventType } from "../types/EventType";
+import { EventUpdate } from "../types/EventUpdate";
 import { isGuest } from "../utils/typeGuards";
 
 export class EventService<T extends IGuest> {
@@ -21,7 +23,7 @@ export class EventService<T extends IGuest> {
         return this.events.get(id);
     }
 
-    getEventsByType(type: string): IEvent<T>[] {
+    getEventsByType(type: EventType): IEvent<T>[] {
         return Array.from(this.events.values()).filter(event => event.type === type);
     }
 
@@ -40,6 +42,16 @@ export class EventService<T extends IGuest> {
         const event = this.events.get(eventId);
         if (event) {
             event.guests.delete(email);
+        }
+    }
+
+    editEvent(id: number, updates: EventUpdate<T>): void {
+        const event = this.events.get(id);
+        if (event) {
+            if (updates.name) event.name = updates.name;
+            if (updates.place) event.place = updates.place;
+            if (updates.date) event.date = updates.date;
+            if (updates.type) event.type = updates.type;
         }
     }
 }
